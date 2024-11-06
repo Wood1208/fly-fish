@@ -1,6 +1,7 @@
 import fs from "fs";
 import Link from "next/link";
 import Image from "next/image";
+import { Undo2Icon } from "lucide-react";
 
 import DownIcon from "@/app/(main)/_components/down-icon";
 import GradualSpacing from "@/components/ui/gradual-spacing";
@@ -9,10 +10,8 @@ import TypingAnimation from "@/components/ui/typing-animation";
 import matter from "gray-matter";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from 'remark-gfm';
-import rehypePrism from 'rehype-prism-plus';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { solarizedlight } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { Undo2Icon } from "lucide-react";
 
 interface PostPageProps {
   params: {
@@ -31,7 +30,7 @@ const getPostContent = (slug: string) => {
 const PostPage:React.FC<PostPageProps> = async ({
   params
 }) => {
-  const { slug } = await params;
+  const { slug } = params;
   const post = getPostContent(slug);
   return (
     <div className="flex flex-col items-center justify-center">
