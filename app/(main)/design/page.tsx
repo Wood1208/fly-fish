@@ -1,9 +1,17 @@
+import Image from "next/image";
 import GradualSpacing from "@/components/ui/gradual-spacing";
 import TypingAnimation from "@/components/ui/typing-animation";
-import Image from "next/image";
 import DownIcon from "../_components/down-icon";
 
+import getPostMetadata from "@/helper/getPostMetadata";
+import PostPreview from "../_components/PostPreview";
+
 const DesignPage = () => {
+  const postMetadata = getPostMetadata();
+  const postPreviews = postMetadata.map((post) => (
+    <PostPreview key={post.slug} {...post} />
+  ));
+
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="relative flex flex-col items-center justify-center w-full h-[50vh]">
@@ -29,6 +37,12 @@ const DesignPage = () => {
           className="absolute bottom-0 left-1/2 transform -translate-x-1/2"
         >
           <DownIcon />
+        </div>
+      </div>
+      <div className="flex flex-col gap-10 items-center w-full min-h-screen bg-gradient-to-br from-gray-600 to-gray-800
+      border-b-4 border-gray-800 shadow-md">
+        <div className="flex flex-col gap-4 w-full md:w-1/2 bg-black/30 rounded-xl p-8 m-8">
+          {postPreviews}
         </div>
       </div>
     </div>

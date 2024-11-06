@@ -31,7 +31,8 @@ export const Card = ({
           alt={title}
           width={60}
           height={60}
-          className="rounded-xl object-cover"
+          className="rounded-xl object-cover transition active:scale-110"
+          onClick={handleClick}
         />
         <h2 className="text-2xl font-semibold text-gray-200">
           {title}

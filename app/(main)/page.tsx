@@ -22,7 +22,7 @@ const HomePage = () => {
   }
 
   const handleClickP1 = () => {
-    router.push("/Timeline")
+    router.push("/products/qaq");
   }
 
   return (
@@ -52,7 +52,7 @@ const HomePage = () => {
           <DownIcon />
         </div>
       </div>
-      <div className="relative flex flex-col items-center justify-center w-full
+      <div className="relative flex flex-col items-center justify-center w-full min-h-screen
       bg-gradient-to-br from-gray-500 to-gray-700 border-b-4 border-gray-800 shadow-md">
         <div className="md:w-2/3 w-full h-full my-4 flex flex-col gap-4 bg-black/40 rounded-3xl">
           <div className="h-auto w-auto items-center justify-center

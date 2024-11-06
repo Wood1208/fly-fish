@@ -1,7 +1,7 @@
 "use client";
+import Image from "next/image";
 import GradualSpacing from "@/components/ui/gradual-spacing";
 import TypingAnimation from "@/components/ui/typing-animation";
-import Image from "next/image";
 import DownIcon from "../_components/down-icon";
 import { Card } from "../_components/card";
 
@@ -35,14 +35,14 @@ const ProductsPage = () => {
           <DownIcon />
         </div>
       </div>
-      <div className="relative flex flex-col items-center justify-center w-full
+      <div className="relative flex flex-col items-center justify-center w-full min-h-screen
       bg-gradient-to-br from-gray-600 to-gray-800 border-b-4 border-gray-800 shadow-md">
-        <div className="md:w-2/3 w-full h-full my-4 flex flex-col gap-2 bg-black/20 rounded-3xl">
+        <div className="md:w-1/2 w-full h-full my-4 flex flex-col gap-2 bg-black/20 rounded-3xl">
           <p className="text-[2rem] md:text-[2.5rem] font-semibold text-gray-200
           flex items-start ml-8 mt-6">
             软件工具：
           </p>
-          <div className="max-w-4xl h-auto w-auto grid grid-cols-1 md:grid-cols-2
+          <div className="max-w-4xl h-auto w-auto grid grid-cols-1
           gap-6 overflow-hidden p-8">
             <Card
               imageUrl="/images/genshan.png"

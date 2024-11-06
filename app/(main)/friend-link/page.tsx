@@ -32,7 +32,7 @@ const FriendLinkPage = () => {
           <DownIcon />
         </div>
       </div>
-      <div className="flex flex-col gap-10 items-center w-full bg-gradient-to-br from-gray-600 to-gray-800
+      <div className="flex flex-col gap-10 items-center w-full min-h-screen bg-gradient-to-br from-gray-600 to-gray-800
       border-b-4 border-gray-800 shadow-md">
         <div className="flex flex-col gap-4 w-full md:w-1/2 bg-black/30 rounded-xl p-8 m-8">
           <div className="flex flex-col gap-4 items-start justify-start">

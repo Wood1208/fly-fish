@@ -134,7 +134,7 @@ const TimelinePage = () => {
           <DownIcon />
         </div>
       </div>
-      <div className="flex flex-col w-full">
+      <div className="flex flex-col w-full min-h-screen">
         <Timeline data={data} />
       </div>
     </div>
