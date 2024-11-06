@@ -13,11 +13,7 @@ import remarkGfm from 'remark-gfm';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { solarizedlight } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
-interface PostPageProps {
-  params: {
-    slug: string;
-  };
-}
+type Params = Promise<{ slug: string }>
 
 const getPostContent = (slug: string) => {
   const folder = "posts/";
@@ -27,10 +23,12 @@ const getPostContent = (slug: string) => {
   return matterResult;
 }
 
-const PostPage:React.FC<PostPageProps> = async ({
+const PostPage = async ({
   params
+}: {
+  params: Params
 }) => {
-  const { slug } = params;
+  const { slug } = await params;
   const post = getPostContent(slug);
   return (
     <div className="flex flex-col items-center justify-center">
