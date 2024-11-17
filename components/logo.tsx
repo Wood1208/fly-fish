@@ -16,7 +16,7 @@ export const Logo = ({
       className="flex space-x-4 cursor-pointer"
     >
       <Image 
-        src="/vercel.svg"
+        src="/favicon.ico"
         alt="logo"
         height={height}
         width={width}

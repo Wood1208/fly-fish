@@ -29,7 +29,7 @@ export const Navbar = () => {
     )}>
       <div className="md:max-w-screen-2xl mx-auto flex items-center
       w-full justify-between">
-        <Logo height={25} width={25} />
+        <Logo height={0} width={0} />
         <div className="flex items-center md:hidden text-gray-200/80 font-semibold ml-auto">
         {/* phone */}
           <div
