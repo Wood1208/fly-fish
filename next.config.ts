@@ -29,6 +29,20 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async headers() {
+    return [
+      {
+        source: '/(.*)',  // 适用于所有路径
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable', // 设置缓存策略
+          },
+        ],
+      },
+    ];
+  },
 };
 
 export default nextConfig;
+

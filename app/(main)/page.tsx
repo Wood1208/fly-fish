@@ -8,9 +8,12 @@ import BoxReveal from "@/components/ui/box-reveal";
 import { ChevronRight } from "lucide-react";
 import { Card } from "./_components/card";
 import { useRouter } from "next/navigation";
+import ImageEffects from "@/components/ImageEffects";
+import { useIsMobile } from "@/hooks/is-mobile";
 
 const HomePage = () => {
   const router = useRouter();
+  const isMobile = useIsMobile();
 
   const handleScrollDown = () => {
     const screenHeight = window.innerHeight;
@@ -22,7 +25,7 @@ const HomePage = () => {
   }
 
   const handleClickP1 = () => {
-    router.push("/products/qaq");
+    // router.push("/products/qaq");
   }
 
   return (
@@ -90,31 +93,13 @@ const HomePage = () => {
               </div>
             </BoxReveal>
           </div>
-          <p className="text-[2rem] md:text-[2.5rem] font-semibold text-gray-200
-            flex ml-10">
-              软件工具：
-          </p>
-          <div className="max-w-4xl h-auto w-auto grid grid-cols-1 md:grid-cols-2
-          gap-6 overflow-hidden p-4 md:ml-6">
-            <Card
-              imageUrl="/images/genshan.png"
-              title="原神第一生产力"
-              description="不为愚蠢的枷锁束缚，软件可以自行完成每日的打卡跑步任务，如果对此感兴趣的话，可以点击此页面查看详细内容~(声明一下我不玩原神)"
-              handleClick={handleClickP1}
-            />
-            <Card
-              imageUrl="/images/genshan.png"
-              title="原神第一生产力"
-              description="不为愚蠢的枷锁束缚，软件可以自行完成每日的打卡跑步任务，如果对此感兴趣的话，可以点击此页面查看详细内容~(声明一下我不玩原神)"
-              handleClick={handleClickP1}
-            />
-            <Card
-              imageUrl="/images/genshan.png"
-              title="原神第一生产力"
-              description="不为愚蠢的枷锁束缚，软件可以自行完成每日的打卡跑步任务，如果对此感兴趣的话，可以点击此页面查看详细内容~(声明一下我不玩原神)"
-              handleClick={handleClickP1}
-            />
+          <div>
+            <p className="text-[2rem] md:text-[2.5rem] font-semibold text-gray-200
+              flex ml-10">
+                软件工具：
+            </p>
           </div>
+          { isMobile ? (<span className="flex text-gray-400 text-[1.5rem] ml-10">此页面无法在移动端显示</span>) : ( <ImageEffects /> ) }
         </div>
       </div>
     </div>

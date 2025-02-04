@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { format } from "date-fns";
 import { PostMetadata } from "@/types/PostMetadata";
 
-const PostPreview = (props: PostMetadata) => {
+const  PostPreview = (props: PostMetadata) => {
   const router = useRouter();
   const handleLink = () => {
     router.push(`/design/posts/${encodeURIComponent(props.slug)}`);
@@ -35,7 +35,7 @@ const PostPreview = (props: PostMetadata) => {
         >
           {props.title}
         </Link>
-        <p 
+        <p  
           className="text-base text-gray-300 font-semibold mt-1 flex items-start"
         >
           {format(new Date(props.date), 'yyyy-MM-dd')}
