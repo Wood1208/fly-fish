@@ -10,10 +10,9 @@ export default function ImageEffects() {
   // 初始化画布
   useEffect(() => {
     if (canvasRef.current) {
-      fabricCanvas.current = new fabric.Canvas(canvasRef.current, {
-        width: 1024,
-        height: 1024
-      });
+      fabricCanvas.current = new fabric.Canvas(canvasRef.current);
+      fabricCanvas.current.setWidth(0);
+      fabricCanvas.current.setHeight(0);
       canvasRef.current.style.border = '4px solid rgba(220, 220, 220, 0.8)'; // 外边框样式
       canvasRef.current.style.borderRadius = '16px';
     }
@@ -29,25 +28,20 @@ export default function ImageEffects() {
       const img = new Image();
       img.crossOrigin = 'Anonymous'; // 解决跨域问题
       img.src = e.target?.result as string;
-  
+
       img.onload = () => {
         // 清空当前画布
         fabricCanvas.current?.clear();
-  
+
+        // 获取图片的原始宽高
+        const imageWidth = img.width;
+        const imageHeight = img.height;
+
+        // 设置画布大小为图片大小
+        fabricCanvas.current?.setWidth(imageWidth);
+        fabricCanvas.current?.setHeight(imageHeight);
+
         fabric.Image.fromURL(img.src, (fabricImg) => {
-          // 获取画布宽度和高度
-          const canvasWidth = fabricCanvas.current?.getWidth() || 1024;
-          const canvasHeight = fabricCanvas.current?.getHeight() || 1024;
-  
-          // 计算居中位置
-          // @ts-ignore
-          const left = (canvasWidth - fabricImg.width) / 2;
-          // @ts-ignore
-          const top = (canvasHeight - fabricImg.height) / 2;
-  
-          // 设置图片的位置
-          fabricImg.set({ left, top });
-  
           // 将图片添加到画布
           fabricCanvas.current?.add(fabricImg);
           fabricCanvas.current?.renderAll();
@@ -57,7 +51,6 @@ export default function ImageEffects() {
     reader.readAsDataURL(file);
   };
 
-  // 保存图片
   const saveImage = () => {
     if (!fabricCanvas.current) return;
 
